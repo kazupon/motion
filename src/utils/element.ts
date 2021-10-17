@@ -7,6 +7,7 @@ import { MotionTarget, PermissiveTarget } from '../types'
 export function resolveElement(
   target: MaybeRef<PermissiveTarget>,
 ): Ref<MotionTarget> {
+  // @ts-ignore
   const _targetRef = ref(target)
   const targetRef = ref()
 
@@ -15,6 +16,7 @@ export function resolveElement(
     (newVal) => {
       if (!newVal) return
 
+      // @ts-ignore
       if ((newVal as VueInstance).$el) {
         targetRef.value = (newVal as VueInstance).$el as MotionTarget
         return

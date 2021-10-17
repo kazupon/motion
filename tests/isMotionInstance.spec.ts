@@ -15,6 +15,7 @@ describe('isMotionInstance', () => {
   it('recognize a motion instance', () => {
     const ref = getElementRef()
 
+    // @ts-ignore
     const motionInstance = useMotion(ref)
 
     expect(isMotionInstance(motionInstance)).toBe(true)

@@ -42,6 +42,7 @@
     "README.md"
   ],
   "dependencies": {
+    "@vue/compiler-core": "^3.2.20",
     "@vueuse/core": "^6.5.3",
     "popmotion": "^10.0.1",
     "vue-demi": "*"
@@ -56,11 +57,14 @@
     }
   },
   "devDependencies": {
+    "@babel/parser": "^7.15.8",
     "@types/jest": "^27.0.2",
     "@types/prismjs": "^1.16.6",
     "@vitejs/plugin-vue": "^1.9.2",
-    "@vue/compiler-sfc": "^3.2.19",
-    "@vue/server-renderer": "^3.2.19",
+    "@vue/compiler-sfc": "^3.2.20",
+    "@vue/compiler-ssr": "^3.2.20",
+    "@vue/runtime-dom": "^3.2.20",
+    "@vue/server-renderer": "^3.2.20",
     "@vue/test-utils": "^2.0.0-rc.6",
     "@vuedx/typecheck": "^0.7.4",
     "@vuedx/typescript-plugin-vue": "^0.7.4",
@@ -76,7 +80,7 @@
     "vite": "2.5.10",
     "vite-plugin-windicss": "^1.4.7",
     "vitepress": "^0.17.0",
-    "vue": "^3.2.4",
+    "vue": "^3.2.20",
     "yorkie": "^2.0.0"
   },
   "gitHooks": {
