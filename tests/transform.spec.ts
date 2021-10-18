@@ -30,7 +30,7 @@ describe('transform', () => {
   })
 
   test('initial: simple binding', async () => {
-    const source = `<div v-motion :initial="initial">Hello world</div>`
+    const source = `<div v-motion :initial="foo">Hello world</div>`
     const { code, ast } = compile(source, {
       mode: 'function',
       directiveTransforms: {
@@ -46,7 +46,7 @@ describe('transform', () => {
       },
       ssrRender: render,
       data() {
-        return { initial: { scale: 1, opacity: 1 } }
+        return { foo: { scale: 1, opacity: 1 } }
       },
     })
     const app = createSSRApp(App)

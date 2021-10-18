@@ -1038,7 +1038,7 @@ const { ssrRenderAttrs: _ssrRenderAttrs } = require(\\"vue/server-renderer\\")
 
 return function ssrRender(_ctx, _push, _parent, _attrs) {
   _push(\`<div\${_ssrRenderAttrs(_mergeProps({
-    style: _mergeProps({ opacity: _ctx.opa, scale: _ctx.scale }, {}),
+    style: { opacity: _ctx.opa, scale: _ctx.scale },
     initial: { opacity: _ctx.opa, scale: _ctx.scale }
   }, _attrs))}>Hello world</div>\`)
 }"
@@ -1298,59 +1298,23 @@ Object {
                         },
                         "type": 16,
                         "value": Object {
-                          "arguments": Array [
-                            Object {
-                              "constType": 0,
-                              "content": "{ opacity: _ctx.opa, scale: _ctx.scale }",
-                              "isStatic": false,
-                              "loc": Object {
-                                "end": Object {
-                                  "column": 49,
-                                  "line": 1,
-                                  "offset": 48,
-                                },
-                                "source": ":initial=\\"{ opacity: opa, scale }\\"",
-                                "start": Object {
-                                  "column": 15,
-                                  "line": 1,
-                                  "offset": 14,
-                                },
-                              },
-                              "type": 4,
-                            },
-                            Object {
-                              "loc": Object {
-                                "end": Object {
-                                  "column": 49,
-                                  "line": 1,
-                                  "offset": 48,
-                                },
-                                "source": ":initial=\\"{ opacity: opa, scale }\\"",
-                                "start": Object {
-                                  "column": 15,
-                                  "line": 1,
-                                  "offset": 14,
-                                },
-                              },
-                              "properties": Array [],
-                              "type": 15,
-                            },
-                          ],
-                          "callee": Symbol(mergeProps),
+                          "constType": 3,
+                          "content": "{ opacity: _ctx.opa, scale: _ctx.scale }",
+                          "isStatic": false,
                           "loc": Object {
                             "end": Object {
-                              "column": 67,
+                              "column": 49,
                               "line": 1,
-                              "offset": 66,
+                              "offset": 48,
                             },
-                            "source": "<div v-motion :initial=\\"{ opacity: opa, scale }\\">Hello world</div>",
+                            "source": ":initial=\\"{ opacity: opa, scale }\\"",
                             "start": Object {
-                              "column": 1,
+                              "column": 15,
                               "line": 1,
-                              "offset": 0,
+                              "offset": 14,
                             },
                           },
-                          "type": 14,
+                          "type": 4,
                         },
                       },
                       Object {
@@ -1586,59 +1550,23 @@ Object {
                             },
                             "type": 16,
                             "value": Object {
-                              "arguments": Array [
-                                Object {
-                                  "constType": 0,
-                                  "content": "{ opacity: _ctx.opa, scale: _ctx.scale }",
-                                  "isStatic": false,
-                                  "loc": Object {
-                                    "end": Object {
-                                      "column": 49,
-                                      "line": 1,
-                                      "offset": 48,
-                                    },
-                                    "source": ":initial=\\"{ opacity: opa, scale }\\"",
-                                    "start": Object {
-                                      "column": 15,
-                                      "line": 1,
-                                      "offset": 14,
-                                    },
-                                  },
-                                  "type": 4,
-                                },
-                                Object {
-                                  "loc": Object {
-                                    "end": Object {
-                                      "column": 49,
-                                      "line": 1,
-                                      "offset": 48,
-                                    },
-                                    "source": ":initial=\\"{ opacity: opa, scale }\\"",
-                                    "start": Object {
-                                      "column": 15,
-                                      "line": 1,
-                                      "offset": 14,
-                                    },
-                                  },
-                                  "properties": Array [],
-                                  "type": 15,
-                                },
-                              ],
-                              "callee": Symbol(mergeProps),
+                              "constType": 3,
+                              "content": "{ opacity: _ctx.opa, scale: _ctx.scale }",
+                              "isStatic": false,
                               "loc": Object {
                                 "end": Object {
-                                  "column": 67,
+                                  "column": 49,
                                   "line": 1,
-                                  "offset": 66,
+                                  "offset": 48,
                                 },
-                                "source": "<div v-motion :initial=\\"{ opacity: opa, scale }\\">Hello world</div>",
+                                "source": ":initial=\\"{ opacity: opa, scale }\\"",
                                 "start": Object {
-                                  "column": 1,
+                                  "column": 15,
                                   "line": 1,
-                                  "offset": 0,
+                                  "offset": 14,
                                 },
                               },
-                              "type": 14,
+                              "type": 4,
                             },
                           },
                           Object {
@@ -1871,19 +1799,19 @@ Object {
 }
 `;
 
-exports[`transform initial: simple binding: <div v-motion :initial="initial">Hello world</div> 1`] = `
+exports[`transform initial: simple binding: <div v-motion :initial="foo">Hello world</div> 1`] = `
 "const { mergeProps: _mergeProps } = require(\\"vue\\")
 const { ssrRenderAttrs: _ssrRenderAttrs } = require(\\"vue/server-renderer\\")
 
 return function ssrRender(_ctx, _push, _parent, _attrs) {
   _push(\`<div\${_ssrRenderAttrs(_mergeProps({
-    style: _mergeProps(_ctx.initial, {}),
-    initial: _ctx.initial
+    style: _ctx.foo,
+    initial: _ctx.foo
   }, _attrs))}>Hello world</div>\`)
 }"
 `;
 
-exports[`transform initial: simple binding: <div v-motion :initial="initial">Hello world</div> 2`] = `
+exports[`transform initial: simple binding: <div v-motion :initial="foo">Hello world</div> 2`] = `
 Object {
   "cached": 0,
   "children": Array [
@@ -1893,15 +1821,15 @@ Object {
           "content": "Hello world",
           "loc": Object {
             "end": Object {
-              "column": 45,
+              "column": 41,
               "line": 1,
-              "offset": 44,
+              "offset": 40,
             },
             "source": "Hello world",
             "start": Object {
-              "column": 34,
+              "column": 30,
               "line": 1,
-              "offset": 33,
+              "offset": 29,
             },
           },
           "type": 2,
@@ -1911,11 +1839,11 @@ Object {
       "isSelfClosing": false,
       "loc": Object {
         "end": Object {
-          "column": 51,
+          "column": 47,
           "line": 1,
-          "offset": 50,
+          "offset": 46,
         },
-        "source": "<div v-motion :initial=\\"initial\\">Hello world</div>",
+        "source": "<div v-motion :initial=\\"foo\\">Hello world</div>",
         "start": Object {
           "column": 1,
           "line": 1,
@@ -1966,15 +1894,15 @@ Object {
           },
           "exp": Object {
             "constType": 0,
-            "content": "_ctx.initial",
+            "content": "_ctx.foo",
             "isStatic": false,
             "loc": Object {
               "end": Object {
-                "column": 32,
+                "column": 28,
                 "line": 1,
-                "offset": 31,
+                "offset": 27,
               },
-              "source": "initial",
+              "source": "foo",
               "start": Object {
                 "column": 25,
                 "line": 1,
@@ -1985,11 +1913,11 @@ Object {
           },
           "loc": Object {
             "end": Object {
-              "column": 33,
+              "column": 29,
               "line": 1,
-              "offset": 32,
+              "offset": 28,
             },
-            "source": ":initial=\\"initial\\"",
+            "source": ":initial=\\"foo\\"",
             "start": Object {
               "column": 15,
               "line": 1,
@@ -2049,11 +1977,11 @@ Object {
                   Object {
                     "loc": Object {
                       "end": Object {
-                        "column": 51,
+                        "column": 47,
                         "line": 1,
-                        "offset": 50,
+                        "offset": 46,
                       },
-                      "source": "<div v-motion :initial=\\"initial\\">Hello world</div>",
+                      "source": "<div v-motion :initial=\\"foo\\">Hello world</div>",
                       "start": Object {
                         "column": 1,
                         "line": 1,
@@ -2096,59 +2024,23 @@ Object {
                         },
                         "type": 16,
                         "value": Object {
-                          "arguments": Array [
-                            Object {
-                              "constType": 0,
-                              "content": "_ctx.initial",
-                              "isStatic": false,
-                              "loc": Object {
-                                "end": Object {
-                                  "column": 33,
-                                  "line": 1,
-                                  "offset": 32,
-                                },
-                                "source": ":initial=\\"initial\\"",
-                                "start": Object {
-                                  "column": 15,
-                                  "line": 1,
-                                  "offset": 14,
-                                },
-                              },
-                              "type": 4,
-                            },
-                            Object {
-                              "loc": Object {
-                                "end": Object {
-                                  "column": 33,
-                                  "line": 1,
-                                  "offset": 32,
-                                },
-                                "source": ":initial=\\"initial\\"",
-                                "start": Object {
-                                  "column": 15,
-                                  "line": 1,
-                                  "offset": 14,
-                                },
-                              },
-                              "properties": Array [],
-                              "type": 15,
-                            },
-                          ],
-                          "callee": Symbol(mergeProps),
+                          "constType": 0,
+                          "content": "_ctx.foo",
+                          "isStatic": false,
                           "loc": Object {
                             "end": Object {
-                              "column": 51,
+                              "column": 29,
                               "line": 1,
-                              "offset": 50,
+                              "offset": 28,
                             },
-                            "source": "<div v-motion :initial=\\"initial\\">Hello world</div>",
+                            "source": ":initial=\\"foo\\"",
                             "start": Object {
-                              "column": 1,
+                              "column": 15,
                               "line": 1,
-                              "offset": 0,
+                              "offset": 14,
                             },
                           },
-                          "type": 14,
+                          "type": 4,
                         },
                       },
                       Object {
@@ -2187,15 +2079,15 @@ Object {
                         "type": 16,
                         "value": Object {
                           "constType": 0,
-                          "content": "_ctx.initial",
+                          "content": "_ctx.foo",
                           "isStatic": false,
                           "loc": Object {
                             "end": Object {
-                              "column": 32,
+                              "column": 28,
                               "line": 1,
-                              "offset": 31,
+                              "offset": 27,
                             },
-                            "source": "initial",
+                            "source": "foo",
                             "start": Object {
                               "column": 25,
                               "line": 1,
@@ -2231,11 +2123,11 @@ Object {
                 "callee": Symbol(mergeProps),
                 "loc": Object {
                   "end": Object {
-                    "column": 51,
+                    "column": 47,
                     "line": 1,
-                    "offset": 50,
+                    "offset": 46,
                   },
-                  "source": "<div v-motion :initial=\\"initial\\">Hello world</div>",
+                  "source": "<div v-motion :initial=\\"foo\\">Hello world</div>",
                   "start": Object {
                     "column": 1,
                     "line": 1,
@@ -2296,11 +2188,11 @@ Object {
                       Object {
                         "loc": Object {
                           "end": Object {
-                            "column": 51,
+                            "column": 47,
                             "line": 1,
-                            "offset": 50,
+                            "offset": 46,
                           },
-                          "source": "<div v-motion :initial=\\"initial\\">Hello world</div>",
+                          "source": "<div v-motion :initial=\\"foo\\">Hello world</div>",
                           "start": Object {
                             "column": 1,
                             "line": 1,
@@ -2343,59 +2235,23 @@ Object {
                             },
                             "type": 16,
                             "value": Object {
-                              "arguments": Array [
-                                Object {
-                                  "constType": 0,
-                                  "content": "_ctx.initial",
-                                  "isStatic": false,
-                                  "loc": Object {
-                                    "end": Object {
-                                      "column": 33,
-                                      "line": 1,
-                                      "offset": 32,
-                                    },
-                                    "source": ":initial=\\"initial\\"",
-                                    "start": Object {
-                                      "column": 15,
-                                      "line": 1,
-                                      "offset": 14,
-                                    },
-                                  },
-                                  "type": 4,
-                                },
-                                Object {
-                                  "loc": Object {
-                                    "end": Object {
-                                      "column": 33,
-                                      "line": 1,
-                                      "offset": 32,
-                                    },
-                                    "source": ":initial=\\"initial\\"",
-                                    "start": Object {
-                                      "column": 15,
-                                      "line": 1,
-                                      "offset": 14,
-                                    },
-                                  },
-                                  "properties": Array [],
-                                  "type": 15,
-                                },
-                              ],
-                              "callee": Symbol(mergeProps),
+                              "constType": 0,
+                              "content": "_ctx.foo",
+                              "isStatic": false,
                               "loc": Object {
                                 "end": Object {
-                                  "column": 51,
+                                  "column": 29,
                                   "line": 1,
-                                  "offset": 50,
+                                  "offset": 28,
                                 },
-                                "source": "<div v-motion :initial=\\"initial\\">Hello world</div>",
+                                "source": ":initial=\\"foo\\"",
                                 "start": Object {
-                                  "column": 1,
+                                  "column": 15,
                                   "line": 1,
-                                  "offset": 0,
+                                  "offset": 14,
                                 },
                               },
-                              "type": 14,
+                              "type": 4,
                             },
                           },
                           Object {
@@ -2434,15 +2290,15 @@ Object {
                             "type": 16,
                             "value": Object {
                               "constType": 0,
-                              "content": "_ctx.initial",
+                              "content": "_ctx.foo",
                               "isStatic": false,
                               "loc": Object {
                                 "end": Object {
-                                  "column": 32,
+                                  "column": 28,
                                   "line": 1,
-                                  "offset": 31,
+                                  "offset": 27,
                                 },
-                                "source": "initial",
+                                "source": "foo",
                                 "start": Object {
                                   "column": 25,
                                   "line": 1,
@@ -2478,11 +2334,11 @@ Object {
                     "callee": Symbol(mergeProps),
                     "loc": Object {
                       "end": Object {
-                        "column": 51,
+                        "column": 47,
                         "line": 1,
-                        "offset": 50,
+                        "offset": 46,
                       },
-                      "source": "<div v-motion :initial=\\"initial\\">Hello world</div>",
+                      "source": "<div v-motion :initial=\\"foo\\">Hello world</div>",
                       "start": Object {
                         "column": 1,
                         "line": 1,
@@ -2568,11 +2424,11 @@ Object {
   "imports": Array [],
   "loc": Object {
     "end": Object {
-      "column": 51,
+      "column": 47,
       "line": 1,
-      "offset": 50,
+      "offset": 46,
     },
-    "source": "<div v-motion :initial=\\"initial\\">Hello world</div>",
+    "source": "<div v-motion :initial=\\"foo\\">Hello world</div>",
     "start": Object {
       "column": 1,
       "line": 1,

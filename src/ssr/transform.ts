@@ -2,12 +2,10 @@ import {
   createObjectProperty,
   createSimpleExpression,
   createObjectExpression,
-  createCallExpression,
   findProp,
   isText,
   ConstantTypes,
   NodeTypes,
-  MERGE_PROPS,
 } from '@vue/compiler-core'
 import { isString } from '@vueuse/core'
 import { evaluateValue } from './transpile'
@@ -150,35 +148,22 @@ function createStyleObjectExpression(
       return createObjectExpression(properties, node.loc)
     } else {
       if (isSimpleExpressionNode(prop.arg) && isConstant(prop.arg)) {
-        const source = createSimpleExpression(
+        return createSimpleExpression(
           prop.exp.content,
           false,
           prop.loc,
           ConstantTypes.NOT_CONSTANT,
-        )
-        const from = createObjectExpression([], prop.loc)
-        return createCallExpression(
-          context.helper(MERGE_PROPS),
-          [source, from],
-          node.loc,
         )
       } else {
         return createObjectExpression(properties, node.loc)
       }
     }
   } else if (isCompoundExpressionNode(prop.exp)) {
-    const expression = prop.exp!.children.map(mapNodeContentHanlder).join('')
-    const source = createSimpleExpression(
-      expression,
+    return createSimpleExpression(
+      prop.exp!.children.map(mapNodeContentHanlder).join(''),
       false,
       prop.loc,
-      ConstantTypes.NOT_CONSTANT,
-    )
-    const from = createObjectExpression([], prop.loc)
-    return createCallExpression(
-      context.helper(MERGE_PROPS),
-      [source, from],
-      node.loc,
+      ConstantTypes.CAN_STRINGIFY,
     )
   } else {
     return createObjectExpression(properties, node.loc)
